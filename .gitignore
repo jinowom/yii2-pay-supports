@@ -27,7 +27,7 @@ phpunit.phar
 /phpunit.xml
 
 # tests 目录
-/tests
+#/tests
 
 # composer.lock 文件
 composer.lock
