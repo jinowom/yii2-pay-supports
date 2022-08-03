@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace jinowom\Supports;
+namespace Jinowom\Supports;
 
 use Exception;
 use Monolog\Formatter\FormatterInterface;
@@ -14,15 +12,15 @@ use Monolog\Logger as BaseLogger;
 use Psr\Log\LoggerInterface;
 
 /**
- * @method static void emergency($message, array $context = [])
- * @method static void alert($message, array $context = [])
- * @method static void critical($message, array $context = [])
- * @method static void error($message, array $context = [])
- * @method static void warning($message, array $context = [])
- * @method static void notice($message, array $context = [])
- * @method static void info($message, array $context = [])
- * @method static void debug($message, array $context = [])
- * @method static void log($message, array $context = [])
+ * @method void emergency($message, array $context = array())
+ * @method void alert($message, array $context = array())
+ * @method void critical($message, array $context = array())
+ * @method void error($message, array $context = array())
+ * @method void warning($message, array $context = array())
+ * @method void notice($message, array $context = array())
+ * @method void info($message, array $context = array())
+ * @method void debug($message, array $context = array())
+ * @method void log($message, array $context = array())
  */
 class Logger
 {
@@ -54,28 +52,23 @@ class Logger
      */
     protected $config = [
         'file' => null,
-        'identify' => 'jinowom.supports',
+        'identify' => 'yansongda.supports',
         'level' => BaseLogger::DEBUG,
         'type' => 'daily',
         'max_files' => 30,
     ];
 
     /**
-     * Bootstrap.
-     */
-    public function __construct(array $config = [])
-    {
-        $this->setConfig($config);
-    }
-
-    /**
      * Forward call.
      *
      * @author jinowom <chareler@163.com>
      *
+     * @param string $method
+     * @param array  $args
+     *
      * @throws Exception
      */
-    public function __call(string $method, array $args): void
+    public function __call($method, $args): void
     {
         call_user_func_array([$this->getLogger(), $method], $args);
     }

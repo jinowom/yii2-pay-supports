@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace jinowom\Supports\Traits;
+namespace Jinowom\Supports\Traits;
 
 use ReflectionClass;
-use jinowom\Supports\Str;
+use Jinowom\Supports\Str;
 
 trait Arrayable
 {

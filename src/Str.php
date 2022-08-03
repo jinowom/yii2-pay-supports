@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace jinowom\Supports;
+namespace Jinowom\Supports;
 
 use Exception;
 
@@ -166,6 +164,8 @@ class Str
 
     /**
      * Return the length of the given string.
+     *
+     * @param string $encoding
      */
     public static function length(string $value, ?string $encoding = null): int
     {
@@ -403,7 +403,7 @@ class Str
     /**
      * Convert string's encoding.
      *
-     * @author jinowom <me@yansonga.cn>
+     * @author yansongda <me@yansonga.cn>
      */
     public static function encoding(string $string, string $to = 'utf-8', string $from = 'gb2312'): string
     {

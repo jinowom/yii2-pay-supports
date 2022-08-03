@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace jinowom\Supports\Traits;
+namespace Jinowom\Supports\Traits;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
@@ -81,6 +79,8 @@ trait HasHttpRequest
      * Set http client.
      *
      * @author jinowom <chareler@163.com>
+     *
+     * @return $this
      */
     public function setHttpClient(Client $client): self
     {
@@ -115,6 +115,8 @@ trait HasHttpRequest
      * setBaseUri.
      *
      * @author jinowom <chareler@163.com>
+     *
+     * @return $this
      */
     public function setBaseUri(string $url): self
     {

@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace jinowom\Supports;
+namespace Jinowom\Supports;
 
 use ArrayAccess;
 use ArrayIterator;
@@ -132,10 +130,8 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
 
     /**
      * To determine Whether the specified element exists.
-     *
-     * @param string|int $key
      */
-    public function has($key): bool
+    public function has(string $key): bool
     {
         return !is_null(Arr::get($this->items, $key));
     }
@@ -167,10 +163,9 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     /**
      * add the item value.
      *
-     * @param string|int|null $key
-     * @param mixed           $value
+     * @param mixed $value
      */
-    public function add($key, $value)
+    public function add(string $key, $value)
     {
         Arr::set($this->items, $key, $value);
     }
@@ -178,10 +173,9 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     /**
      * Set the item value.
      *
-     * @param string|int|null $key
-     * @param mixed           $value
+     * @param mixed $value
      */
-    public function set($key, $value)
+    public function set(string $key, $value)
     {
         Arr::set($this->items, $key, $value);
     }
@@ -189,22 +183,20 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     /**
      * Retrieve item from Collection.
      *
-     * @param string|int|null $key
-     * @param mixed           $default
+     * @param string $key
+     * @param mixed  $default
      *
      * @return mixed
      */
-    public function get($key = null, $default = null)
+    public function get(?string $key = null, $default = null)
     {
         return Arr::get($this->items, $key, $default);
     }
 
     /**
      * Remove item form Collection.
-     *
-     * @param string|int $key
      */
-    public function forget($key)
+    public function forget(string $key)
     {
         Arr::forget($this->items, $key);
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace jinowom\Supports\Traits;
+namespace Jinowom\Supports\Traits;
 
 trait Accessable
 {
@@ -24,8 +24,10 @@ trait Accessable
      * @author jinowom <chareler@163.com>
      *
      * @param mixed $value
+     *
+     * @return mixed
      */
-    public function __set(string $key, $value): self
+    public function __set(string $key, $value)
     {
         return $this->set($key, $value);
     }
@@ -63,8 +65,10 @@ trait Accessable
      * @author jinowom <chareler@163.com>
      *
      * @param mixed $value
+     *
+     * @return $this
      */
-    public function set(string $key, $value): self
+    public function set(string $key, $value)
     {
         $method = 'set';
         foreach (explode('_', $key) as $item) {
@@ -72,7 +76,7 @@ trait Accessable
         }
 
         if (method_exists($this, $method)) {
-            $this->{$method}($value);
+            return $this->{$method}($value);
         }
 
         return $this;

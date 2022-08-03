@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace jinowom\Supports\Logger;
+namespace Jinowom\Supports\Logger;
 
 use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Logger;
@@ -19,12 +17,12 @@ class StdoutHandler extends AbstractProcessingHandler
     /**
      * Bootstrap.
      *
-     * @param int|string $level
+     * @param int  $level
+     * @param bool $bubble
      */
-    public function __construct($level = Logger::DEBUG, bool $bubble = true, ?OutputInterface $output = null)
+    public function __construct($level = Logger::DEBUG, $bubble = true, ?OutputInterface $output = null)
     {
         $this->output = $output ?? new ConsoleOutput();
-
         parent::__construct($level, $bubble);
     }
 

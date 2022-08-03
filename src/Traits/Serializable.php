@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace jinowom\Supports\Traits;
+namespace Jinowom\Supports\Traits;
 
 use RuntimeException;
 
@@ -12,8 +12,10 @@ trait Serializable
      * toJson.
      *
      * @author jinowom <chareler@163.com>
+     *
+     * @return string
      */
-    public function toJson(): string
+    public function toJson()
     {
         return $this->serialize();
     }
@@ -74,11 +76,6 @@ trait Serializable
             throw new RuntimeException('Invalid Json Format');
         }
 
-        $this->unserializeArray($data);
-    }
-
-    public function unserializeArray(array $data): void
-    {
         foreach ($data as $key => $item) {
             if (method_exists($this, 'set')) {
                 $this->set($key, $item);
