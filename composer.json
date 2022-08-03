@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "jinowom\\Supports\\": "src/"
+            "Jinowom\\Supports\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "jinowom\\Supports\\Tests\\": "tests/"
+            "Jinowom\\Supports\\Tests\\": "tests/"
         }
     },
     "suggest": {
